@@ -532,6 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04829419e2ac34621a52517c63c33706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitVFXPrefab: {fileID: 8573401001142898585, guid: a2f2a0208de374da5b62c35154b9f9c4, type: 3}
   animator: {fileID: 2043390845}
   damageAmount: 1
   muzzleFlash: {fileID: 2936026097605559126}
@@ -1185,7 +1186,7 @@ PrefabInstance:
     - target: {fileID: 1830587251733953648, guid: 2b5bb26ab9d8c40c9a54e1654c549ba6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: f1b0fea076fb0574d868f6e3d9523f52, type: 2}
+      objectReference: {fileID: 2100000, guid: 5a0b2b39a15de4813ac937cd6ced58d1, type: 2}
     - target: {fileID: 3988060777708268760, guid: 2b5bb26ab9d8c40c9a54e1654c549ba6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.05
@@ -1252,6 +1253,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7402619500073980348, guid: 2b5bb26ab9d8c40c9a54e1654c549ba6, type: 3}
       propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402619500073980348, guid: 2b5bb26ab9d8c40c9a54e1654c549ba6, type: 3}
+      propertyPath: startDelay.scalar
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7402619500073980348, guid: 2b5bb26ab9d8c40c9a54e1654c549ba6, type: 3}
