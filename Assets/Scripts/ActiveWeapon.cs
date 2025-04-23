@@ -27,12 +27,25 @@ public class ActiveWeapon : MonoBehaviour
 
     void Update()
     {
-        timeSinceLastShot += Time.deltaTime;
         HandleShoot();
+        HandleZoom();
+    }
+
+    public void SwitchWeapon(WeaponSO weaponSO)
+    {
+        if (currentWeapon)
+        {
+            Destroy(currentWeapon.gameObject);
+        }
+        Weapon newWeapon = Instantiate(weaponSO.weaponPrefab, transform).GetComponent<Weapon>();
+        currentWeapon = newWeapon;
+        this.weaponSO = weaponSO;
     }
 
     private void HandleShoot()
     {
+        timeSinceLastShot += Time.deltaTime;
+
         if (!starterAssetsInputs.shoot) return;
 
         if (timeSinceLastShot >= weaponSO.FireRate)
@@ -47,5 +60,19 @@ public class ActiveWeapon : MonoBehaviour
             starterAssetsInputs.ShootInput(false);
         }
 
+    }
+
+    void HandleZoom()
+    {
+        if (!weaponSO.CanZoom) return;
+
+        if (starterAssetsInputs.zoom)
+        {
+            Debug.Log("Zoom in");
+        }
+        else
+        {
+            Debug.Log("Zoom out");
+        }
     }
 }
