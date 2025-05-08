@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3128428053142504148, guid: 839307a4a24dd462a881a7c00c30739a, type: 3}
       propertyPath: m_Name
-      value: Base Weapon Pickup
+      value: Sniper Rifle
       objectReference: {fileID: 0}
     - target: {fileID: 8619275661216636935, guid: 839307a4a24dd462a881a7c00c30739a, type: 3}
       propertyPath: m_LocalPosition.x
