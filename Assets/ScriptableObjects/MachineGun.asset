@@ -15,6 +15,9 @@ MonoBehaviour:
   weaponPrefab: {fileID: 378461956229164996, guid: 2cc09549ef8be4bba88dc5b9e5e2a718, type: 3}
   HitVFXPrefab: {fileID: 8573401001142898585, guid: a2f2a0208de374da5b62c35154b9f9c4, type: 3}
   Damage: 1
-  FireRate: 0.1
+  FireRate: 0.07
   isAutomatic: 1
   CanZoom: 0
+  ZoomAmount: 10
+  ZoomRotationSpeed: 0.3
+  MagazineSize: 40
