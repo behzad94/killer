@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  projectileHitVFX: {fileID: 8573401001142898585, guid: 32c8848fde1904cef916ff4157b5139e, type: 3}
 --- !u!54 &2953634841122052085
 Rigidbody:
   m_ObjectHideFlags: 0
