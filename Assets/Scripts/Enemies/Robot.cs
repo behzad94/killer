@@ -16,13 +16,14 @@ public class Robot : MonoBehaviour
 
     void Start()
     {
-        if (!player) return;
+
         player = FindFirstObjectByType<FirstPersonController>();
     }
 
 
     void Update()
     {
+        if (!player) return;
         agent.SetDestination(player.transform.position);
     }
 
