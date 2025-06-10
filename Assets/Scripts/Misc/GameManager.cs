@@ -7,9 +7,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text enemiesLeftText;
     [SerializeField] GameObject youWinText;
 
+    BackgroundMusicManager backgroundMusicManager;
+
     int enemiesLeft = 0;
 
     const string ENEMIES_LEFT_STRING = "Enemies Left: ";
+
+    void Start()
+    {
+        backgroundMusicManager = FindFirstObjectByType<BackgroundMusicManager>();
+        backgroundMusicManager.PlayMusic();
+    }
 
     public void AdjustEnemiesLeft(int amount)
     {

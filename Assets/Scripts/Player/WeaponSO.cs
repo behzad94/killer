@@ -1,4 +1,3 @@
-using UnityEditor.Search.Providers;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "WeaponSO", menuName = "Scriptable Objects/WeaponSO")]

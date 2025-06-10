@@ -5,11 +5,17 @@
 [Bb]uilds/
 [Ll]ogs/
 MemoryCaptures/
+UserSettings/
+ProjectSettings/Packages/*
 *.csproj
 *.unityproj
 *.sln
 *.userprefs
 .vs/
 .idea/
-.DS_Store
+*.dwlt
+*.txt
+*.DS_Store
+/*.utmp
+/BurstDebugInformation_DoNotShip/
 

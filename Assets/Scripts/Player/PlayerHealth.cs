@@ -16,10 +16,17 @@ public class PlayerHealth : MonoBehaviour
     int currentHealth;
     int gameOverVirtualCameraPriority = 20;
 
+
+    AudioManager audioManager;
     void Awake()
     {
         currentHealth = startingHealth;
         AdjustShieldUI();
+    }
+
+    void Start()
+    {
+        audioManager = FindFirstObjectByType<AudioManager>();
     }
 
     public void TakeDamage(int amount)
@@ -35,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
 
     void PlayerGameOver()
     {
+        audioManager.SetGameOverSnapshot();
         weaponCamera.parent = null;
         deathVirtualCamera.Priority = gameOverVirtualCameraPriority;
         gameOverContainer.SetActive(true);

@@ -7,6 +7,15 @@ namespace StarterAssets
 {
 	public class StarterAssetsInputs : MonoBehaviour
 	{
+
+		[Header("Mobile Inputs")]
+		public Joystick variableJoystick;
+		public GameObject shootButton;
+
+		[Header("Mobile Look Joystick")]
+		public Joystick lookJoystick;
+
+
 		[Header("Character Input Values")]
 		public Vector2 move;
 		public Vector2 look;
@@ -25,7 +34,27 @@ namespace StarterAssets
 		void Start()
 		{
 			SetCursorState(true);
+#if UNITY_ANDROID || UNITY_IOS
+			cursorLocked = false;
+#endif
+			SetCursorState(cursorLocked);
 		}
+
+		void Update()
+		{
+#if UNITY_ANDROID || UNITY_IOS
+			if (variableJoystick != null)
+			{
+				MoveInput(new Vector2(variableJoystick.Horizontal, variableJoystick.Vertical));
+			}
+
+			if (lookJoystick != null)
+			{
+				LookInput(new Vector2(lookJoystick.Horizontal, -lookJoystick.Vertical) * 15f); // عدد 10 برای حساسیت
+			}
+#endif
+		}
+
 
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
@@ -35,11 +64,12 @@ namespace StarterAssets
 
 		public void OnLook(InputValue value)
 		{
-			if (cursorInputForLook)
-			{
-				LookInput(value.Get<Vector2>());
-			}
+#if UNITY_STANDALONE
+    if (cursorInputForLook)
+        LookInput(value.Get<Vector2>());
+#endif
 		}
+
 
 		public void OnJump(InputValue value)
 		{
@@ -59,6 +89,17 @@ namespace StarterAssets
 		public void OnZoom(InputValue value)
 		{
 			ZoomInput(value.isPressed);
+		}
+
+
+		public void OnShootButtonDown()
+		{
+			ShootInput(true);
+		}
+
+		public void OnShootButtonUp()
+		{
+			ShootInput(false);
 		}
 #endif
 

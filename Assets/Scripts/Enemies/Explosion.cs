@@ -1,12 +1,16 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Explosion : MonoBehaviour
 {
     [SerializeField] float radius = 5f;
     [SerializeField] int damage = 3;
 
+    AudioSource audioSource;
+
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         Explode();
     }
 
@@ -20,6 +24,7 @@ public class Explosion : MonoBehaviour
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
         Debug.Log("Explode");
+        audioSource.Play();
         foreach (Collider hitCollider in hitColliders)
         {
             PlayerHealth playerHealth = hitCollider.GetComponent<PlayerHealth>();
