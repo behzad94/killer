@@ -2,6 +2,7 @@ using System.IO;
 using Cinemachine;
 using StarterAssets;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
@@ -16,8 +17,10 @@ public class PlayerHealth : MonoBehaviour
     int currentHealth;
     int gameOverVirtualCameraPriority = 20;
 
+    public bool isGodMode = false;
 
     AudioManager audioManager;
+
     void Awake()
     {
         currentHealth = startingHealth;
@@ -29,8 +32,23 @@ public class PlayerHealth : MonoBehaviour
         audioManager = FindFirstObjectByType<AudioManager>();
     }
 
+    void Update()
+    {
+        if (Keyboard.current.gKey.wasPressedThisFrame)
+        {
+            isGodMode = !isGodMode;
+            Debug.Log("God mode: " + (isGodMode ? "ON" : "OFF"));
+        }
+    }
+
     public void TakeDamage(int amount)
     {
+        if (isGodMode)
+        {
+            Debug.Log("God Mode active, no damage taken");
+            return;
+        }
+
         currentHealth -= amount;
         AdjustShieldUI();
 
